@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>3D Printers</title>
+    <link rel="stylesheet" href="css/3D Printer.css">
+    <script src="js/3D Printer.js" defer></script>
+</head>
+
+<body>
+    <header>
+        <div class="logo-container">
+            <a href="index.html" class="logo">
+                <span class="logo-text">Все</span>
+                <span class="logo-subtext">инструменты</span>
+                <span class="logo-icon">.ru</span>
+            </a>
+        </div>
+        
+          
+        <nav>
+            <ul>
+                <li><a href="index.html">Главная</a></li>
+                <li><a href="3D Printer.html" class="active">3D Принтеры</a></li>
+                <li><a href="materials.html">Материалы</a></li>
+                <li><a href="cart.html">Корзина</a></li>
+                <li><a href="support.html">Поддержка</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <section class="filter-section">
+        <input type="text" id="search-filter" placeholder="Введите название..." onkeyup="applyAllFilters()">
+        <input type="number" id="min-price" placeholder="Мин цена" oninput="applyAllFilters()">
+        <input type="number" id="max-price" placeholder="Макс цена" oninput="applyAllFilters()">
+        <input type="number" id="min-height" placeholder="Мин высота" oninput="applyAllFilters()">
+        <input type="number" id="max-height" placeholder="Макс высота" oninput="applyAllFilters()">
+    </section>
+
+    <section class="printers-gallery">
+        <div class="printer-item" data-name="TEVO" data-price="50000" data-height="300" onclick="openModal('TEVO', 'tevoDescription')">
+            <img src="img/74777254e9d8e6b34f07515d90199f04-removebg-preview.png" alt="Printer 1">
+            <p>TEVO</p>
+        </div>
+
+        <div class="printer-item" data-name="Artillery Sidewinder X1" data-price="75000" data-height="400" onclick="openModal('Artillery Sidewinder X1', 'artilleryDescription')">
+            <img src="img/photo_2024-10-29_23-18-36-removebg-preview.png" alt="Printer 2">
+            <p>Artillery Sidewinder</p>
+        </div>
+
+        <div class="printer-item" data-name="Creality K1" data-price="60000" data-height="350" onclick="openModal('Creality K1', 'Crealityk1Description')">
+            <img src="img/98572-removebg-preview.png" alt="Printer 3">
+            <p>Creality K1</p>
+        </div>
+
+        <div class="printer-item" data-name="Raise3D" data-price="85000" data-height="450" onclick="openModal('Raise3D', 'Raise3DDescription')">
+            <img src="img/image-removebg-preview (1).png" alt="Printer 4">
+            <p>Raise3D</p>
+        </div>
+
+        <div class="printer-item" data-name="BIQU" data-price="40000" data-height="250" onclick="openModal('BIQU', 'BIQUDescription')">
+            <img src="img/image-removebg-preview (2).png" alt="Printer 5">
+            <p>BIQU</p>
+        </div>
+
+        <div class="printer-item" data-name="ANYCUBIC I3 Mega" data-price="45000" data-height="270" onclick="openModal('ANYCUBIC I3 Mega', 'ANYCUBICI3MegaDescription')">
+            <img src="img/image-removebg-preview (3).png" alt="Printer 6">
+            <p>ANYCUBIC I3 Mega</p>
+        </div>
+
+        <div class="printer-item" data-name="BIQU5" data-price="55000" data-height="300" onclick="openModal('BIQU5', 'BIQU5Description')">
+            <img src="img/image-removebg-preview (4).png" alt="Printer 7">
+            <p>BIQU5</p>
+        </div>
+
+        <div class="printer-item" data-name="Phrozen Sonic Mighty 12K" data-price="95000" data-height="500" onclick="openModal('Phrozen Sonic Mighty 12K', 'PhrozenSonicMighty12KDescription')">
+            <img src="img/image-removebg-preview (5).png" alt="Printer 8">
+            <p>Phrozen Sonic 12K</p>
+        </div>
+    </section>
+
+    <div id="modal" class="modal">
+        <div class="modal-content">
+            <span class="close" onclick="closeModal()">&times;</span>
+            <h2 id="modal-title"></h2>
+            <p id="modal-description"></p>
+        </div>
+    </div>
+</body>
+
+</html>

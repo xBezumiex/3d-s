@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="css/materials.css">
+    <script src="js/material.js" defer></script>
+</head>
+
+<body>
+    <header>
+        <div class="logo-container">
+            <a href="index.html" class="logo">
+                <span class="logo-text">Все</span>
+                <span class="logo-subtext">инструменты</span>
+                <span class="logo-icon">.ru</span>
+            </a>
+        </div>
+        <nav>
+            <ul>
+                <li><a href="index.html">Главная</a></li>
+                <li><a href="3D Printer.html">3D Принтеры</a></li>
+                <li><a href="materials.html" class="active">Материалы</a></li>
+                <li><a href="cart.html">Корзина</a></li>
+                <li><a href="support.html" >Поддержка</a></li>
+            </ul>
+        </nav>
+    </header>
+
+
+
+    <section class="filter-section">
+        <input type="text" id="search-filter" placeholder="Введите название..." onkeyup="applyAllFilters()">
+        <input type="number" id="min-price" placeholder="Мин цена" oninput="applyAllFilters()">
+        <input type="number" id="max-price" placeholder="Макс цена" oninput="applyAllFilters()">
+        <input type="number" id="min-height" placeholder="Вес" oninput="applyAllFilters()">
+        <input type="number" id="max-height" placeholder="Метраж" oninput="applyAllFilters()">
+    </section>
+
+
+
+    <section class="printers-gallery">
+        <div id="PLA" name="PLA" class="printer-item" onclick="openModal('', 'PlaDescription')" 
+    data-price="1200" data-weight="1kg" data-length="330m">
+    <img src="img/PLA.jpg" alt="Pla 1">
+    <p>PLA</p>
+</div>
+
+<div class="printer-item" onclick="openModal('', 'Pla1Description')" 
+    data-price="1250" data-weight="1kg" data-length="340m">
+    <img src="img/PLA1.jpg" alt="Pla 2">
+    <p>PLA</p>
+</div>
+
+<div class="printer-item" onclick="openModal('', 'Pla3Description')" 
+    data-price="1150" data-weight="0.75kg" data-length="250m">
+    <img src="img/PLA3.jpeg" alt="Pla 3">
+    <p>PLA</p>
+</div>
+
+<div class="printer-item" onclick="openModal('', 'Pla4Description')" 
+    data-price="1400" data-weight="1.5kg" data-length="500m">
+    <img src="img/PLA4.jpeg" alt="Pla 4">
+    <p>PLA</p>
+</div>
+
+<div class="printer-item" onclick="openModal('', 'Pla5Description')" 
+    data-price="1350" data-weight="1kg" data-length="350m">
+    <img src="img/PLA11.jpeg" alt="Pla 5">
+    <p>PLA</p>
+</div>
+
+<div class="printer-item" onclick="openModal('', 'ABSDescription')" 
+    data-price="1450" data-weight="1kg" data-length="300m">
+    <img src="img/ABS.png" alt="ABS">
+    <p>ABS</p>
+</div>
+
+<div class="printer-item" onclick="openModal('', 'ABS1Description')" 
+    data-price="1550" data-weight="1.2kg" data-length="360m">
+    <img src="img/ABS7.jpeg" alt="ABS">
+    <p>ABS</p>
+</div>
+
+<div class="printer-item" onclick="openModal('', 'ABS10Description')" 
+    data-price="1500" data-weight="1kg" data-length="310m">
+    <img src="img/ABS10.jpeg" alt="ABS">
+    <p>ABS</p>
+</div>
+
+<div class="printer-item" onclick="openModal('', 'ABS11Description')" 
+    data-price="1600" data-weight="1.5kg" data-length="400m">
+    <img src="img/ABS11.jpeg" alt="ABS">
+    <p>ABS</p>
+</div>
+
+<div class="printer-item" onclick="openModal('', 'ABS8Description')" 
+    data-price="1500" data-weight="1kg" data-length="320m">
+    <img src="img/ABS8.jpeg" alt="ABS">
+    <p>ABS</p>
+</div>
+
+<div class="printer-item" onclick="openModal('', 'ABS9Description')" 
+    data-price="1400" data-weight="1kg" data-length="300m">
+    <img src="img/ABS9.jpeg" alt="ABS">
+    <p>ABS</p>
+</div>
+
+<div class="printer-item" onclick="openModal('', 'PETGDescription')" 
+    data-price="1350" data-weight="1kg" data-length="330m">
+    <img src="img/PETG.png" alt="PETG">
+    <p>PETG</p>
+</div>
+
+<div class="printer-item" onclick="openModal('', 'PETG3Description')" 
+    data-price="1400" data-weight="1kg" data-length="320m">
+    <img src="img/PETG3.jpeg" alt="PETG">
+    <p>PETG</p>
+</div>
+
+<div class="printer-item" onclick="openModal('', 'PETG4Description')" 
+    data-price="1450" data-weight="1.2kg" data-length="360m">
+    <img src="img/PETG4.jpeg" alt="PETG">
+    <p>PETG</p>
+</div>
+
+<div class="printer-item" onclick="openModal('', 'PETG5Description')" 
+    data-price="1500" data-weight="1kg" data-length="330m">
+    <img src="img/PETG5.jpeg" alt="PETG">
+    <p>PETG</p>
+</div>
+
+        
+    </section>
+
+
+    <div id="modal" class="modal">
+        <div class="modal-content">
+            <span class="close" onclick="closeModal()">&times;</span>
+            <h2 id="modal-title"></h2>
+            <p id="modal-description"></p>
+        </div>
+    </div>
+</body>
+
+</html>
