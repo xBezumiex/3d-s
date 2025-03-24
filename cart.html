@@ -8,26 +8,51 @@
     <link rel="stylesheet" href="css/cart.css">
     <script src="js/cart.js"></script>
 </head>
+<script>
+    document.addEventListener('DOMContentLoaded', () => {
+        const burger = document.querySelector('.burger-menu');
+        const navMenu = document.querySelector('.nav-menu');
 
+        burger.addEventListener('click', () => {
+            burger.classList.toggle('active');
+            navMenu.classList.toggle('active');
+        });
+
+        // Закрытие меню при клике на ссылку (опционально)
+        document.querySelectorAll('.nav-menu a').forEach(link => {
+            link.addEventListener('click', () => {
+                burger.classList.remove('active');
+                navMenu.classList.remove('active');
+            });
+        });
+    });
+</script>
 <body onload="displayCartItems()">
-    <header>
-        <div class="logo-container">
-            <a href="index.html" class="logo">
-                <span class="logo-text">Все</span>
-                <span class="logo-subtext">инструменты</span>
-                <span class="logo-icon">.ru</span>
-            </a>
-        </div>
-        <nav>
-            <ul>
-                <li><a href="index.html">Главная</a></li>
-                <li><a href="3D Printer.html">3D Принтеры</a></li>
-                <li><a href="materials.html">Материалы</a></li>
-                <li><a href="cart.html" class="active">Корзина</a></li>
-                <li><a href="support.html" >Поддержка</a></li>
-            </ul>
-        </nav>
-    </header>
+    <body>
+        <header>
+            <div class="logo-container">
+                <a href="index.html" class="logo">
+                    <span class="logo-text">Все</span>
+                    <span class="logo-subtext">инструменты</span>
+                    <span class="logo-icon">.ru</span>
+                </a>
+            </div>
+            
+            <nav>
+                <div class="burger-menu">
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                </div>
+                <ul class="nav-menu">
+                    <li><a href="index.html">Главная</a></li>
+                    <li><a href="3D Printer.html" >3D Принтеры</a></li>
+                    <li><a href="materials.html">Материалы</a></li>
+                    <li><a href="cart.html"class="active">Корзина</a></li>
+                    <li><a href="support.html">Поддержка</a></li>
+                </ul>
+            </nav>
+        </header>
     <div id="cart-items"></div>
     
     
