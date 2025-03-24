@@ -13,11 +13,12 @@ body {
 
 header {
     display: flex;
-    justify-content: space-between; /* Логотип слева, меню справа */
-    align-items: center; /* Центрирование по вертикали */
-    padding: 10px 50px;
+    justify-content: space-between;
+    align-items: center;
+    padding: clamp(10px, 2vw, 10px) clamp(20px, 5vw, 50px);
     background-color: #2c2c2c;
-    height: 80px;
+    height: clamp(60px, 15vw, 80px);
+    position: relative;
 }
 
 .logo-container {
@@ -26,79 +27,160 @@ header {
     align-items: center;
 }
 
-/* Логотип */
 .logo {
     display: flex;
     align-items: center;
-    background-color: #d10000; /* Красный фон */
+    background-color: #d10000;
     border-radius: 10px;
-    padding: 8px 16px;
+    padding: clamp(6px, 1.5vw, 8px) clamp(12px, 2vw, 16px);
     text-decoration: none;
     color: white;
 }
 
-/* Основной текст */
 .logo-text {
-    font-size: 20px;
+    font-size: clamp(16px, 4vw, 20px);
     font-weight: bold;
 }
 
-/* Дополнительный текст */
 .logo-subtext {
-    font-size: 16px;
+    font-size: clamp(12px, 3vw, 16px);
     margin-left: 5px;
 }
 
-/* Иконка */
 .logo-icon {
     background-color: white;
     color: #d10000;
     border-radius: 50%;
-    font-size: 12px;
+    font-size: clamp(8px, 2vw, 12px);
     padding: 3px;
     margin-left: 5px;
 }
 
-nav ul {
+nav {
+    display: flex;
+    align-items: center;
+}
+
+.nav-menu {
     list-style: none;
     display: flex;
-    gap: 20px;
+    gap: clamp(10px, 2vw, 20px);
+    margin: 0;
+    padding: 0;
+    transition: transform 0.3s ease-in-out;
 }
 
 nav a {
     color: white;
     text-decoration: none;
     padding: 5px;
+    font-size: clamp(14px, 3vw, 16px);
 }
 
 nav a.active {
     color: #e63946;
 }
 
+/* Бургер-меню */
+.burger-menu {
+    display: none;
+    flex-direction: column;
+    justify-content: space-between;
+    width: 30px;
+    height: 20px;
+    cursor: pointer;
+}
+
+.burger-menu span {
+    width: 100%;
+    height: 3px;
+    background-color: white;
+    transition: all 0.3s ease;
+}
+
+/* Стили для активного бургер-меню */
+.burger-menu.active span:nth-child(1) {
+    transform: rotate(45deg) translate(5px, 5px);
+}
+
+.burger-menu.active span:nth-child(2) {
+    opacity: 0;
+}
+
+.burger-menu.active span:nth-child(3) {
+    transform: rotate(-45deg) translate(7px, -7px);
+}
+
+/* Медиазапросы для мобильных устройств */
+@media (max-width: 768px) {
+    header {
+        padding: clamp(10px, 2vw, 15px) 5%;
+        height: auto;
+    }
+
+    .burger-menu {
+        display: flex;
+    }
+
+    .nav-menu {
+        position: absolute;
+        top: 100%;
+        left: 0;
+        right: 0;
+        flex-direction: column;
+        align-items: center;
+        background-color: #2c2c2c;
+        padding: 20px;
+        transform: translateX(-100%);
+        width: 100%;
+        z-index: 10;
+    }
+
+    .nav-menu.active {
+        transform: translateX(0);
+    }
+
+    nav a {
+        padding: 10px;
+        width: 100%;
+        text-align: center;
+    }
+}
+
+@media (max-width: 480px) {
+    .logo {
+        padding: 6px 12px;
+    }
+
+    .nav-menu {
+        padding: 15px;
+    }
+}
+
 main {
-    max-width: 1200px;
+    max-width: clamp(300px, 90%, 1200px);
     margin: 0 auto;
-    padding: 20px;
+    padding: clamp(10px, 2vw, 20px);
 }
 
 h1 {
-    font-size: 2.5em;
+    font-size: clamp(1.8em, 5vw, 2.5em);
     color: #e63946;
-    margin-bottom: 20px;
+    margin-bottom: clamp(10px, 2vw, 20px);
     text-align: center;
 }
 
 h2 {
-    font-size: 2em;
+    font-size: clamp(1.5em, 4vw, 2em);
     color: #f4a261;
-    margin-bottom: 15px;
+    margin-bottom: clamp(10px, 2vw, 15px);
 }
 
 .contact-form, .faq {
     background-color: #2c2c2c;
     border-radius: 8px;
-    padding: 20px;
-    margin-bottom: 30px;
+    padding: clamp(15px, 3vw, 20px);
+    margin-bottom: clamp(15px, 3vw, 30px);
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
 }
 
@@ -110,30 +192,33 @@ form {
 label {
     margin-bottom: 5px;
     color: #f0f0f0;
+    font-size: clamp(0.9em, 2vw, 1em);
 }
 
 input, textarea {
-    padding: 10px;
-    margin-bottom: 15px;
+    padding: clamp(8px, 1.5vw, 10px);
+    margin-bottom: clamp(10px, 2vw, 15px);
     border: 1px solid #e63946;
     border-radius: 5px;
     background-color: #1c1c1c;
     color: white;
+    font-size: clamp(0.9em, 2vw, 1em);
 }
 
 textarea {
-    height: 150px;
+    height: clamp(100px, 30vw, 150px);
     resize: vertical;
 }
 
 button {
-    padding: 10px 20px;
+    padding: clamp(8px, 1.5vw, 10px) clamp(15px, 2vw, 20px);
     background-color: #e63946;
     color: white;
     border: none;
     border-radius: 5px;
     cursor: pointer;
     transition: background-color 0.3s ease;
+    font-size: clamp(0.9em, 2vw, 1em);
 }
 
 button:hover {
@@ -141,37 +226,49 @@ button:hover {
 }
 
 .faq-item {
-    margin-bottom: 20px;
+    margin-bottom: clamp(10px, 2vw, 20px);
 }
 
 .faq-item h3 {
-    font-size: 1.2em;
+    font-size: clamp(1em, 2.5vw, 1.2em);
     color: #f4a261;
-    margin-bottom: 10px;
+    margin-bottom: clamp(5px, 1vw, 10px);
 }
 
 .faq-item p {
     color: #cfcfcf;
+    font-size: clamp(0.9em, 2vw, 1em);
 }
 
-
-
+/* Медиазапросы для адаптивности */
 @media (max-width: 768px) {
     header {
         flex-direction: column;
-        padding: 20px;
+        height: auto;
+        padding: clamp(15px, 3vw, 20px) 5%;
     }
 
     nav ul {
         flex-direction: column;
         align-items: center;
+        gap: clamp(8px, 2vw, 15px);
     }
 
     .contact-form, .faq {
-        padding: 15px;
+        padding: clamp(10px, 2vw, 15px);
     }
 }
 
+@media (max-width: 480px) {
+    .logo {
+        padding: 6px 12px;
+    }
 
+    input, textarea, button {
+        width: 100%;
+    }
 
-
+    main {
+        padding: clamp(5px, 1vw, 10px);
+    }
+}
